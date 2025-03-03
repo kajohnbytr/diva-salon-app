@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/main"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="0dp">
+
+      <!-- Title Bar -->
+
+      <!-- Calendar View -->
+
+      <!-- Time Picker Card -->
+
+      <View
+          android:id="@+id/titleBar"
+          android:layout_width="0dp"
+          android:layout_height="75dp"
+          android:layout_marginTop="20dp"
+          android:background="#F4D35E"
+          app:layout_constraintHorizontal_bias="0.2"
+          tools:ignore="MissingConstraints" />
+
+      <CalendarView
+          android:id="@+id/calendarView"
+          android:layout_width="327dp"
+          android:layout_height="308dp"
+          android:layout_marginTop="28dp"
+          android:dateTextAppearance="@style/TextAppearance.AppCompat.Body2"
+          android:firstDayOfWeek="1"
+          android:selectedWeekBackgroundColor="@android:color/holo_blue_light"
+          android:weekSeparatorLineColor="@android:color/darker_gray"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.cardview.widget.CardView
+          android:id="@+id/timePickerCard"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          app:cardCornerRadius="12dp"
+          app:cardElevation="0dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/calendarView">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#F4D35E"
+             android:orientation="vertical"
+             android:padding="16dp">
+
+            <!-- Enter Time Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter time"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Time Picker Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+               <!-- Hour EditText -->
+               <EditText
+                   android:id="@+id/editTextHour"
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:background="@drawable/time_input"
+                   android:gravity="center"
+                   android:inputType="number"
+                   android:maxLength="2"
+                   android:text="20"
+                   android:textSize="24sp"
+                   android:textStyle="bold" />
+
+               <!-- Colon -->
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginHorizontal="4dp"
+                   android:text=":"
+                   android:textSize="24sp"
+                   android:textStyle="bold" />
+
+               <!-- Minute EditText -->
+               <EditText
+                   android:id="@+id/editTextMinute"
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:background="@drawable/time_input"
+                   android:gravity="center"
+                   android:inputType="number"
+                   android:maxLength="2"
+                   android:text="00"
+                   android:textSize="24sp"
+                   android:textStyle="bold" />
+
+               <!-- AM/PM Toggle -->
+               <LinearLayout
+                   android:layout_width="40dp"
+                   android:layout_height="48dp"
+                   android:layout_marginStart="8dp"
+                   android:background="@drawable/am_pm_bg"
+                   android:orientation="vertical">
+
+                  <TextView
+                      android:id="@+id/textAM"
+                      android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:gravity="center"
+                      android:text="AM"
+                      android:textSize="14sp" />
+
+                  <TextView
+                      android:id="@+id/textPM"
+                      android:layout_width="match_parent"
+                      android:layout_height="0dp"
+                      android:layout_weight="1"
+                      android:background="#000000"
+                      android:gravity="center"
+                      android:text="PM"
+                      android:textColor="#FFFFFF"
+                      android:textSize="14sp" />
+               </LinearLayout>
+            </LinearLayout>
+
+            <!-- Labels -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+               <TextView
+                   android:layout_width="48dp"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:text="Hour"
+                   android:textSize="12sp" />
+
+               <Space
+                   android:layout_width="16dp"
+                   android:layout_height="wrap_content" />
+
+               <TextView
+                   android:layout_width="48dp"
+                   android:layout_height="wrap_content"
+                   android:gravity="center"
+                   android:text="Minute"
+                   android:textSize="12sp" />
+
+               <Space
+                   android:layout_width="48dp"
+                   android:layout_height="wrap_content" />
+            </LinearLayout>
+         </LinearLayout>
+      </androidx.cardview.widget.CardView>
+
+      <!-- Stylist Selection Section -->
+
+      <TextView
+          android:id="@+id/stylistLabel"
+          android:layout_width="110dp"
+          android:layout_height="33dp"
+          android:layout_marginTop="20dp"
+          android:text="Select Stylist"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/timePickerCard" />
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/stylistRecyclerView"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:clipToPadding="false"
+          android:orientation="horizontal"
+          android:paddingHorizontal="8dp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@id/stylistLabel" />
+
+      <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:textStyle="bold"
+          android:text="Set Appointment"
+          android:textColor="#FBFBFB"
+          android:textSize="14sp"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="@+id/titleBar" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
